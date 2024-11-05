@@ -10,22 +10,30 @@
         height:540px;
         width:100%;
         object-fit:cover;
+        margin-bottom:16px;
       }
     </style>
 
     
     
   </head>
-  <body> 
+  <body>
+  {%include 'nav.html' %}
+    <img class="img-fluid" id="banner" src='../static/banner.jpg'height='280' alt="Ashu">
     <div class="container">
     <h1 class="text-center mt-2 mb-4">{{company_name}} Website </h1>
-    <img class="img-fluid" id="banner" src='../static/banner.jpg'height='320' alt="Ashu">
-    <h2 class="text-center mt-2 mb-4">About Career's Website</h2>
-    <p class="lead">Career's Website is your go-to platform for everything tech-related! We specialize in providing valuable resources for job seekers, offering insights into the latest job openings in the tech industry. Our mission is to connect aspiring professionals with opportunities that match their skills and ambitions.
-
+    <div class="row" style="margin-bottom:16px">
+      <div class="col-md-6">
+    <p class="lead">
+      Career's Website is your go-to platform for everything tech-related! We specialize in providing valuable resources for job seekers, offering insights into the latest job openings in the tech industry. Our mission is to connect aspiring professionals with opportunities that match their skills and ambitions.
     In addition to job listings, Career's Website keeps you updated on the latest technological advancements and trends. We provide in-depth articles, tutorials, and news on various tech topics, ensuring you stay informed and ahead of the curve. Whether you’re interested in software development, data science, cybersecurity, or emerging technologies, we cover it all.
 
     Join us at Career's Website to enhance your career prospects, expand your technical knowledge, and become part of a vibrant community of tech enthusiasts!</p>
+      </div>
+      <div class="d-none d-md-block col-6">
+        <img src="../static/people.jpg" style= "height:320px; border-radius:4px;">
+      </div>
+    </div>
     <h2 class="text-center mt-2 mb-4" >Job Openings</h2>
     <div>  
       {%for job in jobs %}
@@ -34,10 +42,11 @@
     </div>
       <div class="text-center">
     <button class="btn btn-primary btn-lg">Contact Us</button>
-        <p class="mt-4">Copyright 2024,Career's Portal</p>
+
       </div>
     
     </div>
+  {% include 'footer.html' %}
   </body>
 
 </html>
