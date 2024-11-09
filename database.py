@@ -1,7 +1,11 @@
 import sqlalchemy
 from sqlalchemy import create_engine, text
 
-db_connection_string = "mysql+pymysql://avnadmin:AVNS_aUz72sJT0ybg8gWTc5M@mysql-350736d1-singhrishav382001-d41a.k.aivencloud.com:25844/defaultdb?"
+import os
+db_connection_string = os.getenv('db_connection_string')
+
+
+
 
 
 engine = create_engine(
