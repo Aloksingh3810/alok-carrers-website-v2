@@ -1,9 +1,15 @@
-
+import os
 from flask import Flask, render_template,jsonify
+
 from database import load_jobs_from_db
 
-app = Flask(__name__)
 
+
+db_connection_string = os.getenv("db_connection_string")
+
+
+
+app = Flask(__name__)
 
 
 @app.route("/")
