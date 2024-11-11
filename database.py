@@ -1,5 +1,6 @@
 from dataclasses import asdict
 
+
 import sqlalchemy
 from sqlalchemy import create_engine, text
 
@@ -42,11 +43,30 @@ def load_job_from_db(id):
             return (rows[0]._asdict())
 
 
+from sqlalchemy.sql import text
 
+def add_application_to_db(job_id, data):
+    with engine.connect() as conn:
+        # Remove the space between the colon and placeholder
+        query = text(
+            "INSERT INTO applications (job_id, full_name, email, linkedin_url, education, experience, resume_url) "
+            "VALUES (:job_id, :full_name, :email, :linkedin_url, :education, :experience, :resume_url)"
+        )
 
+        # Define the parameters as a dictionary
+        parameters = {
+            "job_id":job_id,
+            "full_name": data['full_name'],
+            "email": data['email'],
+            "linkedin_url": data['linkedin_url'],
+            "education": data['education'],
+            "experience": data['experience'],
+            "resume_url": data['resume_url']
+        }
 
+        # Execute the query with the parameters
+        conn.execute(query, parameters)
 
-
-
+        conn.commit()
 
 
