@@ -1,2 +1,2 @@
 # alok-career-website
-A career website for alok
+A career website for Rishav.
